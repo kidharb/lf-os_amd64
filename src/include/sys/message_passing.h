@@ -27,6 +27,8 @@ enum MessageType {
     MT_HardwareInterrupt,
     MT_ServiceDiscovery,
 
+    MT_9P,
+
     MT_UserDefined = 1024,
 };
 
@@ -67,6 +69,11 @@ struct Message {
             uint64_t mq;
             char     discoveryData[0];
         } ServiceDiscovery;
+        struct NinePData {
+
+            uint64_t response_queue;
+            char message[0];
+        } NineP;
 
         char raw[0];
     } user_data;
